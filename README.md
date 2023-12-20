@@ -22,4 +22,4 @@ You can choose **two** parent CPPNs and create new generation:
 To choose network as parent click on weapon gameobject (white triangle) and set property **IsEvaluated = true**
 
 
-![Alt text](screenshots\\191309.png?raw=true "Title")
+![Alt text](screenshots/191309.png?raw=true "Title")

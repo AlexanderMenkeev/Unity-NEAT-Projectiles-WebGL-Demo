@@ -20,3 +20,6 @@ You can choose **two** parent CPPNs and create new generation:
 + 6 offspring networks which were created via sexual reproduction
 
 To choose network as parent click on weapon gameobject (white triangle) and set property **IsEvaluated = true**
+
+
+![Alt text](screenshots\191633.png?raw=true "Title")

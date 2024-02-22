@@ -1,130 +1,124 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Unity WebGL Player | ManRun</title>
-  <link rel="shortcut icon" href="TemplateData/favicon.ico">
-  <link rel="stylesheet" href="TemplateData/style.css">
 
-  <!-- Yandex Games SDK -->
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=AUTOCHZFhgpVDsvQx-YXurPGjy-VSDRjHcYvm3lY5phKXVlqyBbbN_ZIn5Epv6iWI0JpsKKCvaN-lYGPxq1fwMAVa_mWAYTvaIiJiNyxc9t-_dyRbLyGc6BS1oGaCdh1nLwtV-7sPxjUPzGBwunaDwd8YIVLbyKYZMUtr0gMTVLbxqYGcex9sI5-z6-_3MHRISO1v5_GT8rlx06s8F4AnQkbs7eX5IDy_iQi8i1f5dy748Y9sO5X341kBX3LQUmU0G5O-aVwelMqrkrdxmBS_mtWK50zaRyLpt2ZyqYSqnIq9wc3nxCq7sX6eWwf6BS_yyEVNBqInSdjhJKPTRbjeb7oLSDjrcVdVzJJNX3omNjHZ8CMOC1ln7U3eL26pgppsr7mX13RezRXQeJuQLsQPGOXXNC9ZBt2Lm4iOIwKdfnqSbWYvHil5HW3v1KTXTYTqliRgTpDnVxryVq9dxReX885O7hLkBKslKOZbwbsxj1Agqn3klyiJ-Gh5EGVP96PcvPACjUqtXtNPQ-IkYej_7F30avDszgmgW2UvoEFJlANnG0Ylw2HvCqFNxolVoYLEhqyNkogwSlUv8ZNBE7nFMsmsKUSXoMLkEsFZZntms-blkYFJ5u1cpcFW2kRVM70buCm1bsEVyM01fwBSeJD-UvztrqO1S7Cg-sGGmmmSghGbLlApaZeU89rE_zedyfQi3d8Ky-TY1XV-Y_9N-baSt7rSHhbk9Zxg1NxXOzmLWvOTOPNMCZAx1l4Y0QaqKIukj2CZoaR7Mn4jeqs1OjvYvO_TNyDfISSjL-_ONzIKASAygJLmik_FUOMsNN6Qraa3KP4GLRj9W5AD7maHoGE35pjLqoZCMpfvprI8JA5BlaAE1sKhppPY-6WrSpxarUooPYWD8ZHXC2EtKaEMwZQ2V0OehHJ31OET36faPc3o7wzDj2VY_cB8So8AYkcXNXUj39fohDFs8b0kUSu6SdsJafLKhR3yYbaHsRCdzOGVcZe1iDIdv3xxQfhjK8fspwn-8Op02RKMD_XrHHVydguviriVTA5qoZKH6GX80UpNdd4Pz8NTGhl-AGdionF1QWv" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9zNDY2c2FzLnN0b3JhZ2UueWFuZGV4Lm5ldC9yZGlzay8xNTQ0ODFjNWEyZjY4OGE4MzcwZjg5ZmNkZTM4MTE1MGViYmE4Yzg1MThlNGFjYzliMzk4NDE2NjI2NWM3NTYyLzY1ZDdkYWZmL3pEcG5tdHZZNW5VQ0lvTVcxXzlwaE8xbk9nRThXRVJVQUVEV216VDRROEZEdWVpZGJld09kdWsxSTNlNTdrMEREUFZHQ3dJMXBiXzMyYkpyMElzYVl3PT0_dWlkPTAmZmlsZW5hbWU9aW5kZXguaHRtbCZkaXNwb3NpdGlvbj1hdHRhY2htZW50Jmhhc2g9Z0FycWFmWFlxaXpnYzFjMEhFYUdNJTJibFRUWSUyYndqbGFpMDN2Qm1UUk5tbjNXVXltRVA3ZzByQVF2RlNHVFJ0OVRxL0o2YnBtUnlPSm9uVDNWb1huRGFnJTNkJTNkJTNhL2luZGV4Lmh0bWwmbGltaXQ9MCZjb250ZW50X3R5cGU9dGV4dCUyZmh0bWwmb3duZXJfdWlkPTEzNzY2MTA0NDAmZnNpemU9NTAwNCZoaWQ9NDhjM2M5NjE3ZjQ1MDMzOTA1Nzk3OWUwNjBlZmQzMTAmbWVkaWFfdHlwZT1kZXZlbG9wbWVudCZ0a252PXYyJnJ0b2tlbj1PaEdXa1ZseTJPTjUmZm9yY2VfZGVmYXVsdD1ubyZ5Y3JpZD1uYS00YzE0MzdjOWY4MmQwYjM3ZjUzYjQzNTY1OWJmZjQ2YS1kb3dubG9hZGVyMmUmdHM9NjEyMDBmMTVkN2RjMCZzPTdhMDNjYjkyNzMxMjNhYjliNWIxNzllYjRhZDE5ZmY5NmRmMzkxMmJhYTUyMTgwZWY0MWYzNGY3NmVhODJjM2UmcGI9VTJGc2RHVmtYMV9NbDlWNVVXanh1Z0Y5d2E3cHhUckRFVnNMSENwMUQ3a2p0YllkSmVfZGpDUUM3NE9nRTc4R25udEVBWTdKcWQ3WWN0OTJzYlJ2Q05JN19oYmxpaWJjaEdnMUVfX25LaDg"/><script src="https://yandex.ru/games/sdk/v2"></script>
-
-</head>
-<body>
-<div id="unity-container" style = "position: absolute; width: 100%; height: 100%; left: 0%; top: 0%;">
-  <canvas id="unity-canvas" style = "position: absolute; width: 100%; height: 100%;"></canvas>
-  <div id="unity-loading-bar">
-    <div id="unity-logo"></div>
-    <div id="unity-progress-bar-empty">
-      <div id="unity-progress-bar-full"></div>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Particles</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  
+  <body>
+    <div id="unity-container" style="position: absolute; width: 100%; height: 100%;" class="unity-desktop">
+      <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%;" tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Particles</div>
+      </div>
     </div>
-  </div>
-  <div id="unity-warning"> </div>
+    <script>
 
-</div>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
 
-<script>
-  YaGames
-          .init()
-          .then(ysdk => {
-            console.log('Yandex SDK initialized');
-            window.ysdk = ysdk;
-          });
-</script>
-
-<script>
-  var container = document.querySelector("#unity-container");
-  var canvas = document.querySelector("#unity-canvas");
-  var loadingBar = document.querySelector("#unity-loading-bar");
-  var progressBarFull = document.querySelector("#unity-progress-bar-full");
-  //var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-  var warningBanner = document.querySelector("#unity-warning");
-
-  // Shows a temporary message banner/ribbon for a few seconds, or
-  // a permanent error message on top of the canvas if type=='error'.
-  // If type=='warning', a yellow highlight color is used.
-  // Modify or remove this function to customize the visually presented
-  // way that non-critical warnings and error messages are presented to the
-  // user.
-  function unityShowBanner(msg, type) {
-    function updateBannerVisibility() {
-      warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-    }
-    var div = document.createElement('div');
-    div.innerHTML = msg;
-    warningBanner.appendChild(div);
-    if (type == 'error') div.style = 'background: red; padding: 10px;';
-    else {
-      if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-      setTimeout(function() {
-        warningBanner.removeChild(div);
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
         updateBannerVisibility();
-      }, 5000);
-    }
-    updateBannerVisibility();
-  }
+      }
 
-  var buildUrl = "Build";
-  var loaderUrl = buildUrl + "/Build.loader.js";
-  var config = {
-    dataUrl: buildUrl + "/Build.data.unityweb",
-    frameworkUrl: buildUrl + "/Build.framework.js.unityweb",
-    codeUrl: buildUrl + "/Build.wasm.unityweb",
-    streamingAssetsUrl: "StreamingAssets",
-    companyName: "DefaultCompany",
-    productName: "ManRun",
-    productVersion: "0.1.0",
-    showBanner: unityShowBanner,
-  };
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Unity-Particles-WebGL-Demo.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/Unity-Particles-WebGL-Demo.data",
+        frameworkUrl: buildUrl + "/Unity-Particles-WebGL-Demo.framework.js",
+        codeUrl: buildUrl + "/Unity-Particles-WebGL-Demo.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Particles",
+        productVersion: "1",
+        showBanner: unityShowBanner,
+      };
 
-  // By default Unity keeps WebGL canvas render target size matched with
-  // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-  // Set this to false if you want to decouple this synchronization from
-  // happening inside the engine, and you would instead like to size up
-  // the canvas DOM size and WebGL render target sizes yourself.
-  // config.matchWebGLToCanvasSize = false;
+      // By default, Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
 
-  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-    // Mobile device style: fill the whole browser client area with the game canvas:
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
 
-    var meta = document.createElement('meta');
-    meta.name = 'viewport';
-    meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-    document.getElementsByTagName('head')[0].appendChild(meta);
-    container.className = "unity-mobile";
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
 
-    // To lower canvas resolution on mobile devices to gain some
-    // performance, uncomment the following line:
-    // config.devicePixelRatio = 1;
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
 
-    canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height = window.innerHeight + 'px';
-  } else {
-    // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-    canvas.style.width = "100%";
-    canvas.style.height = "100%";
-  }
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-  loadingBar.style.display = "block";
+        canvas.style.width = "1000px";
+        canvas.style.height = "500px";
+      }
 
-  var script = document.createElement("script");
-  script.src = loaderUrl;
-  script.onload = () => {
-    createUnityInstance(canvas, config, (progress) => {
-      progressBarFull.style.width = 100 * progress + "%";
-    }).then((unityInstance) => {
-      loadingBar.style.display = "none";
-      //fullscreenButton.onclick = () => {
-      //  unityInstance.SetFullscreen(1);
-      //};
-    }).catch((message) => {
-      alert(message);
-    });
-  };
-  document.body.appendChild(script);
-</script>
-</body>
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+              }).then((unityInstance) => {
+                loadingBar.style.display = "none";
+                fullscreenButton.onclick = () => {
+                  unityInstance.SetFullscreen(1);
+                };
+              }).catch((message) => {
+                alert(message);
+              });
+            };
+
+      document.body.appendChild(script);
+
+    </script>
+  </body>
 </html>
-

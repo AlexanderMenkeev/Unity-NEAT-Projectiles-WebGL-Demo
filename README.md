@@ -12,7 +12,7 @@ NEAT Bullets is a tool for Unity that allows you to create weapons that have uni
 
 ## General Idea
 
-<img src="diagrams/output1.svg" alt="drawing" width="500"/>
+<img src="Documentation/diagrams/output1.svg" alt="drawing" width="500"/>
 
 + Each weapon contains a single network evolved by the NEAT.
 
@@ -40,12 +40,12 @@ If you want to use one of the 140 pre-made weapons, follow these steps:
 1. Place the __EvolutionAlgorithm.prefab__ and __EvoSceneWeapon.prefab__ into your scene.
 
 2. Choose an instance of __Weapon Params SO__ and drag it into the __Weapon SO__ property of the __EvoSceneWeapon__ in your scene. All instances of __Weapon Params SO__ follow this name convention `WP_<UniqueHash>`. Use search to find them.
-   ![picture](gifs/choosingweapon.gif)
+   ![picture](/Documentation/gifs/choosingweapon.gif)
 
 3. Select the gameobject that will be the parent for the instantiated projectiles. Drag it into the __Projectiles Parent Transform__ property of the __EvoSceneWeapon__ in your scene.
 
 4. Press the play button.
-   ![picture](gifs/demoOfWeapon.gif)
+   ![picture](/Documentation/gifs/demoOfWeapon.gif)
 
 
 ## Evolving new weapons
@@ -55,12 +55,12 @@ If you want to evolve your own weapons, follow these steps:
 1. Open __WeaponEvolutionScene__ and press the play button.
 
 2. Find ScriptableObject __EvoWeaponParams__ and use its inspector to adjust weapon parameters.
-   ![picture](gifs/changingParamsDemo.gif)
+   ![picture](/Documentation/gifs/changingParamsDemo.gif)
 
 3. Select good genomes using __Select as parent for next get__ button in the __EvoWeapon__ inspector. Press __New Generation__ button.
 
 4. If you found the weapon you like, you can save it by clicking on __Save__ button in the __EvoWeapon__ inspector.
-   ![picture](pictures/savingWeapons.png)
+   ![picture](/Documentation/pictures/savingWeapons.png)
 The two files that represent the weapon will be created `Genome_<UniqueHash>.xml` and `Params_<UniqueHash>.json`. These files will be saved to the directory `Resources\ProjectileGenomes\<UniqueHash>`. 
 
 > __EvoWeapon__ custom editor supports editing of multiple objects. If you select multiple __EvoWeapons__, __Select as parent for next get__ and __Save__ buttons would work correctly.
@@ -79,7 +79,7 @@ Lets suppose you evolved and saved a lot of weapons, now you have a bunch of fol
 2. Search for "WP" within the `Resources\ProjectileGenomes` folder
 
 3. Select all of them and press __Load files from folder__ button in the inspector (press it twice if `Rename` option is checked). Then press __Load__ button.
-   ![picture](gifs/loadFilesFromFolderDemo.gif)
+   ![picture](/Documentation/gifs/loadFilesFromFolderDemo.gif)
 
 4. Now you can use these new weapons
 
@@ -89,7 +89,7 @@ Lets suppose you evolved and saved a lot of weapons, now you have a bunch of fol
 
 IWeaponParams interface is implemented by ScriptableObject __WeaponParamsSO__ and class __WeaponParams__. These classes act as containers for variables that change the behaviour of a weapon. The main difference between these two classes is that the __WeaponParams__ is not persistent, meaning that its data is deleted after leaving play mode, while the __WeaponParamsSO__ is persistent (because it's a ScriptableObject).
 
-<img src="diagrams/output2.svg" alt="drawing" width="500"/>
+<img src="/Documentation/diagrams/output2.svg" alt="drawing" width="500"/>
 
 ## IWeaponParams properties
 
